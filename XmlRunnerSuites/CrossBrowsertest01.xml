@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Cross Parallel" parallel="tests" thread-count="2" verbose="2">
+
+    <test name="Testing with chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <packages>
+            <package name="tests"></package>
+        </packages>
+    </test>
+
+<!--    This part has been deactivated since some locators gave errors in firefox and i did not have time to comapare and change locators-->
+
+<!--    <test name="Testing with firefox">-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+<!--        <packages>-->
+<!--            <package name="tests"></package>-->
+<!--        </packages>-->
+<!--    </test>-->
+</suite>

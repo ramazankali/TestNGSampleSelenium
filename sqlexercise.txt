@@ -1,0 +1,31 @@
+--INSTRUCTIONS:
+--Navigate to the following -----------
+--It is an open Data Base provided by w3schools.
+--If you do not see the tables at the left side of the screen, you may need to click [Restore DB] to retrieve the list of tables.
+
+--LIST OF EXERCISES
+--1.	Select all employees who have any degree in “BA”.
+--2.	Display how many orders were processed by each employee. Display Employees Last Name, First Name and amount of orders;
+--3.	Display how many orders were made by each Shipper. Display Shipper's name and "Amount of processed orders".
+
+--Answers:
+
+--1-	Question 1:
+
+		SELECT * FROM Employees WHERE Notes LIKE '% BA %';	--I may prefer this one in case of another existence like BALTIMORE University etc...
+
+--2-	Question 2:
+		SELECT T1.LastName, T1.FirstName, (SELECT COUNT(EmployeeID) FROM Orders AS T2 WHERE T1.EmployeeID=T2.EmployeeID) AS NumberOfOrders
+		FROM Employees AS T1 ;
+
+--3-	Question 3:
+	--a.	If existence in Order Table means processed
+		SELECT T1.ShipperName, (SELECT COUNT(OrderId) FROM Orders AS T2 WHERE T1.ShipperID=T2.ShipperID) AS ProcessedOrders
+			FROM Shippers AS T1;
+
+	--b.	If Existence of an order in OrderDetails means “Processed Order”
+		SELECT T1.ShipperName, (SELECT COUNT(OrderId)
+									FROM Orders AS T2
+									WHERE   T1.ShipperID=T2.ShipperID AND T2.OrderID IN (SELECT DISTINCT(OrderID) FROM OrderDetails)
+									) AS ProcessedOrders
+			FROM Shippers AS T1;
