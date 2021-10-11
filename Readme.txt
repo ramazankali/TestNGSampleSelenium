@@ -1,5 +1,5 @@
-- Framework is a TestNG framework assumed that your current framework is a testNG framework by estimation of your codes i received
-- You can run the test by running "./XmlRunnerSuites/CrossBrowsertest01.xml" file
+- Framework is a TestNG framework assumed that your current framework is a testNG framework
+- run the test by running "./XmlRunnerSuites/CrossBrowsertest01.xml" file
 - I added a method end of Driver class to save the images from an url which is collected from your partners webelements
 - test registers data of partners in 2 ways
     a- 1st method
@@ -12,5 +12,3 @@
 - I prepared the framework for cross browser testing by entering parameter to xml file
 It works fine in chrome but i guess some locators had to be located in a different manner so it can work for all browsers like firefox.
     
-  I did not have time for this.
-  Hope it works...
